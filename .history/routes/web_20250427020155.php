@@ -26,5 +26,8 @@ bu deneme
     ->name('admin.dashboard')
     ->middleware(['admin']);
 
-
+RoundToCeil::class('test', 2.3);
+Route::get('/test', function () {
+    return RoundToCeil::class('test', 2.3);
+});
 require __DIR__.'/auth.php';
