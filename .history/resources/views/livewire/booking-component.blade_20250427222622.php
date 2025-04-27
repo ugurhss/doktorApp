@@ -1,0 +1,1 @@
+/booking/page/{{$item->id}}

@@ -17,6 +17,7 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
+        "pikaday": "^1.8.2",
         "preline": "^3.0.1"
     }
 }
