@@ -121,7 +121,7 @@ Saat                      </span>
                             <td class="size-px whitespace-nowrap align-top">
                               <a class="block p-6" href="#">
                                 <div class="flex items-center gap-x-3">
-                                   {{-- <livewire:profile-image :user_id="$appointment->doctor->doctorUser->id"/> --}}
+                                   <livewire:profile-image :user_id="$appointment->doctor->doctorUser->id"/>
                                   <div class="grow">
                                     <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">{{$appointment->doctor->doctorUser->name}}</span>
                                     <span class="block text-sm text-gray-500 dark:text-neutral-500">{{$appointment->doctor->doctorUser->email}}</span>
@@ -148,21 +148,21 @@ Saat                      </span>
                                 <svg class="size-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                                 </svg>
-                                Tamamlandı
+                                Complete
                               </span>
                               @else
-                              <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-red-100 text-red-800 rounded-full dark:bg-yellow-500/10 dark:text-yellow-500">
+                              <span class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full dark:bg-yellow-500/10 dark:text-yellow-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                 </svg>
-                                Askıya Al
+                                Pending
                               </span>
                               @endif
                             </div>
                           </td>
                           <td class="size-px whitespace-nowrap align-top">
                             <div class="flex p-6">
-                              <button class="bg-green-500 rounded mx-3 text-white p-1 ml-3" wire:click="start({{$appointment->id}})" wire:confirm="Görüntülü Aramaya katılmak istiyor musunuz?">
+                              <button class="bg-green-500 rounded mx-3 text-white p-1 ml-3" wire:click="start({{$appointment->id}})" wire:confirm="Are you really want to Join this Video Call?">
                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
                                     </svg>
