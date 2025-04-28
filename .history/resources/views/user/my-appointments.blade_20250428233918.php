@@ -10,5 +10,5 @@
     </div>
 @endif
 
-<livewire:appointments/>
+<livewire:all-appointments/>
 </x-app-layout>

@@ -16,13 +16,12 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
     Route::get('/filter-by-speciality/{speciality_id}',[UserController::class,'loadDoctorBySpeciality']);
+    Route::get('/my-appointments', [UserController::class, 'loadMyAppointments'])->name('my.appointments');
     Route::get('/articles', [UserController::class, 'loadArticles'])->name('articles');
-    Route::get('/my/appointments', [UserController::class, 'loadMyAppointments'])->name('my.appointments');
     Route::get('/booking/page/{doctor_id}', [UserController::class, 'loadBookingPage'])
     ->name('booking.page');
     // Route::get('/booking/page/all/doktor', [UserController::class, 'loadBookingPage'])
     ;
-
  // ********************************************************************************************************
 
     Route::group(['middleware' => 'doctor'],function(){
@@ -52,10 +51,7 @@ Route::view('profile', 'profile')
         ->name('doctor.schedule.edit');
 
 
-        Route::get('/doctor/reschedule',[DoctorController::class,'reschedule'])
-        ->name('doctor.reschedule');
-        Route::get('/doctor/reschedule/{appointmend_id}',[DoctorController::class,'reschedule'])
-        ->name('doctor.rescheduleform');
+
     });
 
 
@@ -86,7 +82,7 @@ Route::view('profile', 'profile')
         Route::get('/admin/reschedule',[AdminController::class,'reschedule'])
         ->name('admin.reschedule');
         Route::get('/admin/reschedule/{appointmend_id}',[AdminController::class,'reschedule'])
-        ->name('admin.rescheduleform');
+        ->name('admin.reschedule');
 
 
     });

@@ -38,13 +38,8 @@ class AdminController extends Controller
 
     public function reschedule(){
 
-        return view('admin.reschedule');
+        return view('admin.reschedule')
 
-    }
-
-    public function rescheduleForm($id){
-        $appointment_id = $id;
-        return view('admin.reschedule-form',compact('appointment_id'));
     }
 
 }

@@ -86,7 +86,7 @@ Route::view('profile', 'profile')
         Route::get('/admin/reschedule',[AdminController::class,'reschedule'])
         ->name('admin.reschedule');
         Route::get('/admin/reschedule/{appointmend_id}',[AdminController::class,'reschedule'])
-        ->name('admin.rescheduleform');
+        ->name('admin.reschedule');
 
 
     });
