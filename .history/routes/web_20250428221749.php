@@ -20,8 +20,8 @@ Route::view('profile', 'profile')
     Route::get('/articles', [UserController::class, 'loadArticles'])->name('articles');
     Route::get('/booking/page/{doctor_id}', [UserController::class, 'loadBookingPage'])
     ->name('booking.page');
-    // Route::get('/booking/page/all/doktor', [UserController::class, 'loadBookingPage'])
-    ;
+    Route::get('/booking/page/all/doktor', [UserController::class, 'loadBookingPage'])
+    ->name('booking.page');
  // ********************************************************************************************************
 
     Route::group(['middleware' => 'doctor'],function(){

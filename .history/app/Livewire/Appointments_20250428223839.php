@@ -56,11 +56,6 @@ class Appointments extends Component
         }
     }
 
-
-
-
-
-
     public function start($appointment_id){
         $this->redirect('/live_consultation', navigate: true);
     }

@@ -28,7 +28,7 @@ class Appointments extends Component
         $appointmentEmailData = [
             'date' => $appointment->appointment_date,
             'time' => Carbon::parse($appointment->appointment_time)->format('H:i A'),
-            'location' => 'Ugur Can Dgn',
+            'location' => '123 Medical Street, Health City',
             'patient_name' => $patient->name,
             'patient_email' => $patient->email,
             'doctor_name' => $doctor->doctorUser->name,
@@ -42,7 +42,7 @@ class Appointments extends Component
 
         $appointment->delete();
 
-        session()->flash('message','Basarli bir şekilde silindi');
+        session()->flash('message','Appointment cancelled successfully');
         if (auth()->user()->role == 0) {
             return $this->redirect('/my/appointments', navigate: true);
         }
@@ -55,11 +55,6 @@ class Appointments extends Component
             return $this->redirect('/doctor/appointments', navigate: true);
         }
     }
-
-
-
-
-
 
     public function start($appointment_id){
         $this->redirect('/live_consultation', navigate: true);

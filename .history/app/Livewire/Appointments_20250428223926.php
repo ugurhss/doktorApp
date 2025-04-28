@@ -14,7 +14,7 @@ use Livewire\WithPagination;
 class Appointments extends Component
 {
     use WithPagination;
-    public $perPage = 5;
+    public $perPage = 1;
     public $search = '';
 
     public function cancel($id){
@@ -55,11 +55,6 @@ class Appointments extends Component
             return $this->redirect('/doctor/appointments', navigate: true);
         }
     }
-
-
-
-
-
 
     public function start($appointment_id){
         $this->redirect('/live_consultation', navigate: true);

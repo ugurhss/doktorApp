@@ -15,12 +15,11 @@ class FeaturedDoctors extends Component
                 ->whereHas('speciality', function ($query) use ($speciality_id) {
                     $query->where('specialities.id', $speciality_id);
                 })
-                // ->where('is_featured',1)
+                ->where('is_featured',1)
                 ->get();
 
         } else {
-            $this->featuredDoctors = Doctor::with(['speciality', 'doctorUser'])->get();
-            // ->where('is_featured',1);
+            $this->featuredDoctors = Doctor::with(['speciality', 'doctorUser'])->get()->where('is_featured',1);
         }
 
     }

@@ -25,6 +25,6 @@ class UserController extends Controller
     }
     public function alldoctor(){
         $doctor = Doctor::with('speciality','doctorUser');
-        return view('user.all-doctor',compact('doctor'));
+        return view('user.booking-page',compact('doctor'));
     }
 }
