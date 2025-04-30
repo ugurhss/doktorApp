@@ -6,7 +6,6 @@
     <div class="text-center">
         {{-- <livewire:profile-image :user_id="$doctor_details->doctorUser->id"/> --}}
       <div class="mt-2 sm:mt-4">
-
         <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-neutral-200">
           {{$doctor_details->doctorUser->name}}
         </h3>

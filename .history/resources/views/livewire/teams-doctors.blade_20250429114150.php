@@ -44,7 +44,7 @@
             </div>
             <!-- End Social Brands -->
               @if (auth()->user() != null)
-                  <a href="/booking/page/{{$item->id}}" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                  <a href="" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                     Randevu Alın
                   </a>
               @else
@@ -61,14 +61,13 @@
         @else
 
         @endif
-        {{-- tüm doktorlarımızı kısmını yap --}}
-      <a class="col-span-full lg:col-span-1 group flex flex-col justify-center text-center rounded-xl p-4 md:p-6 border border-dashed border-gray-200 hover:shadow-sm dark:border-neutral-700" href="/all/doctors">
+      <a class="col-span-full lg:col-span-1 group flex flex-col justify-center text-center rounded-xl p-4 md:p-6 border border-dashed border-gray-200 hover:shadow-sm dark:border-neutral-700" href="/">
         <h3 class="text-lg text-gray-800 dark:text-neutral-200">
             Daha Fazlasını Keşfedin!
                 </h3>
         <div>
           <span class="inline-flex items-center gap-x-2 text-blue-600 group-hover:text-blue-700 dark:text-blue-500 dark:group-hover:text-blue-400">
-            Tüm doktorlarımızı görün
+            See all our doctors
             <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </span>
         </div>

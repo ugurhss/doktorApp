@@ -36,7 +36,7 @@ class DoctorController extends Controller
     //     return view('doctor.reschedule-form');
     // }
 
-    public function rescheduleform($id){
+    public function reschedule($id){
         $appointment_id = $id;
         return view('doctor.reschedule-form',compact('appointment_id'));
     }

@@ -31,6 +31,6 @@ class UserController extends Controller
 
     public function reschedulingForm($id){
         $appointment_id = $id;
-        return view('user.rescheduleform',compact('appointment_id'));
+        return view('patient.reschedule-form',compact('appointment_id'));
     }
 }

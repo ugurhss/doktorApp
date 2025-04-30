@@ -10,7 +10,6 @@ new class extends Component
 {
     public string $name = '';
     public string $email = '';
-    public string $resim_jpg='';
 
     /**
      * Mount the component.

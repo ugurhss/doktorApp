@@ -55,10 +55,8 @@ Route::view('profile', 'profile')
 
         Route::get('/doctor/reschedule',[DoctorController::class,'reschedule'])
         ->name('doctor.reschedule');
-        Route::get('/doctor/reschedule/{appointmend_id}',[DoctorController::class,'rescheduleform'])
+        Route::get('/doctor/reschedule/{appointmend_id}',[DoctorController::class,'reschedule'])
         ->name('doctor.rescheduleform');
-
-
     });
 
 
@@ -88,7 +86,7 @@ Route::view('profile', 'profile')
 
         Route::get('/admin/reschedule',[AdminController::class,'reschedule'])
         ->name('admin.reschedule');
-        Route::get('/admin/reschedule/{appointmend_id}',[AdminController::class,'rescheduleForm'])
+        Route::get('/admin/reschedule/{appointmend_id}',[AdminController::class,'reschedule'])
         ->name('admin.rescheduleform');
 
 
