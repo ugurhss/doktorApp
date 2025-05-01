@@ -1,0 +1,15 @@
+*.php linguist-language=PHP
+
+*.js linguist-language=JavaScript
+
+
+*.blade.php linguist-language=PHP
+
+*.json linguist-detectable=false
+*.css linguist-detectable=false
+
+/vendor/** linguist-vendored
+/node_modules/** linguist-vendored
+/public/build/** linguist-vendored
+/resources/js/bootstrap.js linguist-vendored
+/resources/js/app.js linguist-vendored
