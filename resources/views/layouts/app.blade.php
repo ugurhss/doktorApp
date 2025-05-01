@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        {{-- sbazı şeyker düzenlendi --}}
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
