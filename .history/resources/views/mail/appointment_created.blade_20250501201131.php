@@ -29,18 +29,20 @@ Randevuyu Görüntüle
 @endif
 
 @if($appointmentData['recipient_role'] == 'doctor')
-## Uzman Notification
-Yeni bir randevunuz planlandı. Lütfen detayları inceleyin ve buna göre hazırlık yapın.
+## Doctor Notification
+You have a new appointment scheduled. Please review the details and prepare accordingly.
+
 @component('mail::button', ['url' => 'http://127.0.0.1:8000/login'])
-Randevuyu Görüntüle
+View Appointment
 @endcomponent
 @endif
 
 @if($appointmentData['recipient_role'] == 'patient')
-## User Notification
-Randevunuz başarıyla planlandı. Lütfen zamanında geldiğinizden ve gerekli belgeleri getirdiğinizden emin olun.
+## Patient Notification
+Your appointment has been successfully scheduled. Please make sure to arrive on time and bring any necessary documents.
+
 @component('mail::button', ['url' => 'http://127.0.0.1:8000/login'])
-Randevuyu Görüntüle
+View Appointment
 @endcomponent
 @endif
 

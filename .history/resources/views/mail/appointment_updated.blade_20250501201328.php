@@ -34,8 +34,8 @@ Randevu yukarıdaki detaylarla güncellendi.
 @endif
 
 @if($appointmentData['recipient_role'] == 'patient')
-## User Notification
-Randevunuz başarıyla yeniden planlandı. Yukarıdaki ayrıntılara bakın.
+## Patient Notification
+Your appointment has been successfully rescheduled. See the above details.
 @endif
 
 Thanks,<br>
