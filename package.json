@@ -21,6 +21,7 @@
     "dependencies": {
         "flowbite": "^3.1.2",
         "pikaday": "^1.8.2",
-        "preline": "^3.0.1"
+        "preline": "^3.0.1",
+        "vanilla-calendar-pro": "^3.0.4"
     }
 }
