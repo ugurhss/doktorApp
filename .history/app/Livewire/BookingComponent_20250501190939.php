@@ -2,41 +2,40 @@
 
 namespace App\Livewire;
 
-use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Appointment;
+use App\Models\DoctorSchedule;
+use Illuminate\Support\Carbon;
+use App\Mail\AppointmentCreated;
 use App\Models\DoctorSchedul;
-use App\Mail\AppointmentUpdated;
 use Illuminate\Support\Facades\Mail;
 
-class RescheduleForm extends Component
+class BookingComponent extends Component
 {
-
     public $doctor_details;
+    public $appointment_type;
     public $selectedDate;
-    public $appointment_details;
     public $availableDates = [];
     public $timeSlots = [];
 
-    public function mount($appointment_id)
+    public function mount($doctor)
     {
-        $this->appointment_details = Appointment::find($appointment_id);
+        $this->doctor_details = $doctor;
 
-        $this->doctor_details = $this->appointment_details->doctor;
         $this->fetchAvailableDates($this->doctor_details);
     }
 
-    public function updateAppointment($slot){
+    public function bookAppointment($slot){
         $carbonDate = Carbon::parse($this->selectedDate)->format('Y-m-d');
-        $updateAppointment = Appointment::find($this->appointment_details->id);
-        $updateAppointment->update([
-            'appointment_date' => $carbonDate,
-            'appointment_time' => $slot,
-        ]);
+        $newAppointment = new Appointment();
+        $newAppointment->patient_id = auth()->user()->id;
+        $newAppointment->doctor_id = $this->doctor_details->id;
+        $newAppointment->appointment_date = $carbonDate;
+        $newAppointment->appointment_time = $slot;
+        $newAppointment->appointment_type = $this->appointment_type;
+        $newAppointment->save();
 
         $appointmentEmailData = [
-            'old_date' => $this->appointment_details->appointment_date,
-            'old_time' => $this->appointment_details->appointment_time,
             'date' => $this->selectedDate,
             'time' => Carbon::parse($slot)->format('H:i A'),
             'location' => '123 Medical Street, Health City',
@@ -44,22 +43,17 @@ class RescheduleForm extends Component
             'patient_email' => auth()->user()->email,
             'doctor_name' => $this->doctor_details->doctorUser->name,
             'doctor_email' => $this->doctor_details->doctorUser->email,
+            'appointment_type' => $this->appointment_type == 0 ? 'on-site' : 'live consultation',
             'doctor_specialization' => $this->doctor_details->speciality->speciality_name,
         ];
-
+        // dd($appointmentEmailData);
         $this->sendAppointmentNotification($appointmentEmailData);
 
-        session()->flash('message','Dgn. ile randevu.'.$this->doctor_details->doctorUser->name.' on '.$this->selectedDate.$slot.' was created!');
-        if (auth()->user()->role == 0) {
-            return $this->redirect('/my/appointments',navigate: true);
-        } elseif(auth()->user()->role == 1) {
-            return $this->redirect('/doctor/appointments',navigate: true);
-        }else{
-            return $this->redirect('/admin/appointments',navigate: true);
-        }
+        session()->flash('message','randevu ile Dgn.'.$this->doctor_details->doctorUser->name.' on '.$this->selectedDate.$slot.' was created!');
 
+        return $this->redirect('/my/appointments',navigate: true);
     }
-     public function fetchAvailableDates($doctor)
+    public function fetchAvailableDates($doctor)
     {
         $schedules = DoctorSchedul::where('doctor_id', $doctor->id)
             ->get();
@@ -87,7 +81,6 @@ class RescheduleForm extends Component
         }
 
         $this->availableDates = $dates;
-
     }
 
     public function selectDate($date)
@@ -133,25 +126,28 @@ class RescheduleForm extends Component
 
     public function sendAppointmentNotification($appointmentData)
     {
-        // Admin
+        // Send to Admin
         $appointmentData['recipient_name'] = 'Admin Admin';
         $appointmentData['recipient_role'] = 'admin';
-        Mail::to('dgnugur11@gmail.com')->send(new AppointmentUpdated($appointmentData));
+        Mail::to('admin@example.com')->send(new AppointmentCreated($appointmentData));
 
-        // Doctor
+        // Send to Doctor
         $appointmentData['recipient_name'] = $appointmentData['doctor_name'];
         $appointmentData['recipient_role'] = 'doctor';
-        Mail::to($appointmentData['doctor_email'])->send(new AppointmentUpdated($appointmentData));
+        Mail::to($appointmentData['doctor_email'])->send(new AppointmentCreated($appointmentData));
 
-        // user patient
+        // Send to Patient
         $appointmentData['recipient_name'] = $appointmentData['patient_name'];
         $appointmentData['recipient_role'] = 'patient';
-        Mail::to($appointmentData['patient_email'])->send(new AppointmentUpdated($appointmentData));
+        Mail::to($appointmentData['patient_email'])->send(new AppointmentCreated($appointmentData));
 
-        return 'Randevu bildirimleriniz başarıyla gönderildi!';
+        return 'harika randevu oluştu?';
     }
+
     public function render()
     {
-        return view('livewire.reschedule-form');
+        return view('livewire.booking-component', [
+            'availableDates' => $this->availableDates,
+        ]);
     }
 }
