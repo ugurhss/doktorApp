@@ -1,9 +1,9 @@
 <div>
-    {{-- <div wire:loading>
+    <div wire:loading>
       <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
         <span class="sr-only">yükleniyor...</span>
       </div>
-      yükleniyor..</div> --}}
+      yükleniyor..</div>
       <!-- Card Blog -->
   <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-10 bg-white border my-2  shadow-md">
      <!-- Grid -->
@@ -29,7 +29,7 @@
               <option value="1">Live consultation</option>
             </select>
               <h3>Uygun Bir Tarih Seçin</h3>
-      <input type="text" id="datepicker" autocomplete="off" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Uygun Bir Tarih Seçin">
+      <input type="text" id="datepicker" autocomplete="off" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Select Available date">
       @if($selectedDate)
           <div>
               <h4>Secilen Tarih: {{ $selectedDate }}</h4>

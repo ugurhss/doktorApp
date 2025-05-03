@@ -10,7 +10,7 @@ use Pest\Mutate\Mutators\Math\RoundToCeil;
 Route::view('/', 'welcome');
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth'])//->middleware(['auth', 'admin']) // admin middleware'ini ekledik
+    ->middleware(['auth', 'verified'])//->middleware(['auth', 'admin']) // admin middleware'ini ekledik
     ->name('dashboard');
 
 Route::view('profile', 'profile')

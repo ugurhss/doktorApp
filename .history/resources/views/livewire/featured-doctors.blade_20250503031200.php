@@ -61,7 +61,7 @@
         @else
 
         @endif
-      <a class="col-span-full lg:col-span-1 group flex flex-col justify-center text-center rounded-xl p-4 md:p-6 border border-dashed border-gray-200 hover:shadow-sm dark:border-neutral-700" href="/">
+      <a class="col-span-full lg:col-span-1 group flex flex-col justify-center text-center rounded-xl p-4 md:p-6 border border-dashed border-gray-200 hover:shadow-sm dark:border-neutral-700" href="/booking/page/all/doktor">
         <h3 class="text-lg text-gray-800 dark:text-neutral-200">
             Daha Fazlasını Keşfedin!
         </h3>

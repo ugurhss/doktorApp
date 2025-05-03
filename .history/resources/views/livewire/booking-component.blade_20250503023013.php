@@ -1,9 +1,9 @@
 <div>
-    {{-- <div wire:loading>
+    <div wire:loading>
       <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
         <span class="sr-only">yükleniyor...</span>
       </div>
-      yükleniyor..</div> --}}
+      yükleniyor..</div>
       <!-- Card Blog -->
   <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-10 bg-white border my-2  shadow-md">
      <!-- Grid -->
