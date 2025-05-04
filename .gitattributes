@@ -1,11 +1,18 @@
-* text=auto eol=lf
+# PHP dosyalarını PHP olarak tanımla
+*.php linguist-language=PHP
+*.phtml linguist-language=PHP
 
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
-*.md diff=markdown
-*.php diff=php
+# Laravel Blade dosyalarını PHP olarak say (HTML değil)
+*.blade.php linguist-language=PHP
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+# JS dosyalarını JavaScript olarak tanımla
+*.js linguist-language=JavaScript
+
+# HTML dosyalarını HTML olarak tanımla
+*.html linguist-language=HTML
+
+# CSS dosyalarını CSS olarak tanımla
+*.css linguist-language=CSS
+
+# Hack dilini görmezden gel (yanlış algılanıyorsa)
+*.hack linguist-detectable=false
