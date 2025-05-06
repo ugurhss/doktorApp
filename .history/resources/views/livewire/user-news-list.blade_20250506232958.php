@@ -33,17 +33,17 @@
             Uncategorized
         @endif
     </p>
-    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 break-words">
-        {{ Str::limit(strip_tags($news->details), 100) }}
-    </p>
-
+    <h3 class="mt-2 text-lg font-semibold text-gray-800 group-hover:text-blue-600 dark:text-neutral-300 dark:group-hover:text-white break-words">
+        {{ $news->title }}
+    </h3>
 
     <!-- Content preview -->
-
-
+    <h8 class="mt-2 text-lg font-semibold text-gray-800 group-hover:text-blue-600 dark:text-neutral-300 dark:group-hover:text-white break-words">
+        {!! Str::limit($news->details, 150, '...') !!}
+    </h8>
 
     <!-- Devamını Oku Button -->
-    <span class="mt-3 inline-block text-sm text-blue-600 hover:underline dark:text-blue-500">  Devamını Oku → </span>
+    <span class="mt-3 inline-block text-sm text-blue-600 hover:underline dark:text-blue-500">Devamını Oku</span>
 </div>
 
         </a>
@@ -55,9 +55,9 @@
     <div class="text-center">
         <div class="inline-block bg-white border border-gray-200 shadow-2xs rounded-full dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden">
             <div class="py-3 px-4 flex items-center gap-x-2">
-                <p class="text-gray-600 dark:text-neutral-400 break-words"> </p>
+                <p class="text-gray-600 dark:text-neutral-400 break-words">Daha fazla okumak ister misiniz?</p>
                 <a href="/news" class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500">
-                    Daha fazlasını gör →
+                    Buraya git
                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </a>
             </div>

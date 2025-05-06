@@ -24,11 +24,9 @@ new class extends Component
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" wire:navigate>
-                       <x-application-logo  />
+                       <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
-
-
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
@@ -79,9 +77,7 @@ new class extends Component
                  {{ __('Seanslarım') }}
                  </x-nav-link>
              @endif
-             <x-nav-link :href="route('newsList')" :active="request()->routeIs('newsList')" wire:navigate>
-                {{ __('Haberler') }}
-                </x-nav-link>
+
                 </div>
             </div>
 

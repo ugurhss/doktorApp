@@ -6,12 +6,11 @@
     @if($news->image)
         <img src="{{ asset('storage/' . json_decode($news->image)[0]) }}" alt="{{ $news->title }}" class="w-full rounded-lg shadow-md mb-6">
     @endif
-
-    <!-- Detaylar - prose ile destekli gösterim -->
-    <div class="text-gray-300 dark:text-gray-400 mb-6 prose prose-invert max-w-none">
-        {!! $news->details !!}
-        </div>
+sa
+    <!-- Detaylar -->
+    <div class="text-gray-300 dark:text-gray-400 mb-6">
+        {!! nl2br(e($news->details)) !!}
+    </div>
 
     <!-- Geri Dön Butonu -->
-    <a href="{{ route('news.index') }}" class="text-indigo-500 hover:text-indigo-700 font-semibold">Geri Dön</a>
 </div>

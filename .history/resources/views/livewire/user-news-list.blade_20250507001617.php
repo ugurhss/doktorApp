@@ -33,8 +33,8 @@
             Uncategorized
         @endif
     </p>
-    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 break-words">
-        {{ Str::limit(strip_tags($news->details), 100) }}
+    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
+        {!! Str::limit($news->details, 100, '...') !!}
     </p>
 
 

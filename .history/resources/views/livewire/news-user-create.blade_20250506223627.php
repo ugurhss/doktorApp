@@ -31,26 +31,25 @@
         </div>
 
         <!-- Detaylar (Textarea) -->
-        <div wire:ignore class="mb-4">
-            <label for="details" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Detay</label>
-            <input id="x" type="hidden" value="{{ $details }}">
-            <trix-editor input="x" class="w-full rounded-md shadow-sm dark:bg-gray-700 dark:text-white dark:border-gray-700"></trix-editor>
+        <div class="mb-4">
+            <label for="details" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Detaylar</label>
+            <textarea
+                id="details"
+                name="details"
+                wire:model="details"
+                rows="6"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white dark:focus:ring-indigo-600"
+            ></textarea>
+            @error('details') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
-        <script>
-            document.addEventListener('trix-change', function (e) {
-                @this.set('details', e.target.innerHTML);
-            });
-        </script>
-        @error('details') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- Gönder Butonu -->
-
-      <button
+        <button
             type="submit"
             class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-800"
         >
             Kaydet
-        </button></a>
+        </button>
     </form>
 
     @if (session()->has('message'))

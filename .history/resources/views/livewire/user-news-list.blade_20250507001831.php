@@ -34,7 +34,7 @@
         @endif
     </p>
     <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 break-words">
-        {{ Str::limit(strip_tags($news->details), 100) }}
+        {{ Str::limit(strip_tags($news->summary), 100) }}
     </p>
 
 

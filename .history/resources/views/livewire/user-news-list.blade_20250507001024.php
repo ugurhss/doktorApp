@@ -33,17 +33,18 @@
             Uncategorized
         @endif
     </p>
-    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 break-words">
-        {{ Str::limit(strip_tags($news->details), 100) }}
+    <h3 class="mt-2 text-lg font-semibold text-gray-800 group-hover:text-blue-600 dark:text-neutral-300 dark:group-hover:text-white break-words">
+        {{ $news->title }}
+    </h3>
+
+    <!-- Content preview -->
+    <p class="mt-2 text-sm text-gray-700 dark:text-neutral-300 line-clamp-3">
+        {!! Str::limit($news->details, 100, '...') !!}
     </p>
 
 
-    <!-- Content preview -->
-
-
-
     <!-- Devamını Oku Button -->
-    <span class="mt-3 inline-block text-sm text-blue-600 hover:underline dark:text-blue-500">  Devamını Oku → </span>
+    <span class="mt-3 inline-block text-sm text-blue-600 hover:underline dark:text-blue-500">  Devamını Oku →</span>
 </div>
 
         </a>

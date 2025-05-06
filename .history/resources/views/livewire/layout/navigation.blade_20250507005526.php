@@ -28,8 +28,6 @@ new class extends Component
                     </a>
                 </div>
 
-
-
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
                     @if (auth()->user() && auth()->user()->role == 2)
@@ -79,9 +77,7 @@ new class extends Component
                  {{ __('Seanslarım') }}
                  </x-nav-link>
              @endif
-             <x-nav-link :href="route('newsList')" :active="request()->routeIs('newsList')" wire:navigate>
-                {{ __('Haberler') }}
-                </x-nav-link>
+
                 </div>
             </div>
 

@@ -28,7 +28,9 @@ new class extends Component
                     </a>
                 </div>
 
-
+                <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" wire:navigate>
+                    {{ __('Dashboard') }}
+                    </x-nav-link>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
@@ -79,9 +81,7 @@ new class extends Component
                  {{ __('Seanslarım') }}
                  </x-nav-link>
              @endif
-             <x-nav-link :href="route('newsList')" :active="request()->routeIs('newsList')" wire:navigate>
-                {{ __('Haberler') }}
-                </x-nav-link>
+
                 </div>
             </div>
 

@@ -10,7 +10,7 @@
     <!-- Detaylar - prose ile destekli gösterim -->
     <div class="text-gray-300 dark:text-gray-400 mb-6 prose prose-invert max-w-none">
         {!! $news->details !!}
-        </div>
+    </div>
 
     <!-- Geri Dön Butonu -->
     <a href="{{ route('news.index') }}" class="text-indigo-500 hover:text-indigo-700 font-semibold">Geri Dön</a>

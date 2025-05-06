@@ -26,19 +26,21 @@
             <!-- Content -->
            <!-- Content -->
 <div class="p-4 md:p-5 break-words overflow-hidden">
-    <p class="mt-2 text-xs uppercase text-gray-500 dark:text-neutral-400 break-words">
+    <p class="mt-2 text-xs uppercase text-gray-500break-words">
         @if($news->category)
             {{ $news->category }}
         @else
             Uncategorized
         @endif
     </p>
-    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 break-words">
-        {{ Str::limit(strip_tags($news->details), 100) }}
-    </p>
-
+    <h3 class="mt-2 text-lg font-semibold text-gray-800 group-hover:text-blue-600 dark:text-neutral-300 dark:group-hover:text-white break-words">
+        {{ $news->title }}
+    </h3>
 
     <!-- Content preview -->
+    <p class="mt-2 text-sm text-gray-100 dark:text-neutral-300 line-clamp-3">
+        {!! Str::limit($news->details, 100, '...') !!}
+    </p>
 
 
 

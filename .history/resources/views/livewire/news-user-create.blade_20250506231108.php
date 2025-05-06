@@ -47,6 +47,7 @@
 
       <button
             type="submit"
+              onclick="window.location.href='/news';"
             class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-800"
         >
             Kaydet

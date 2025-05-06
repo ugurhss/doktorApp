@@ -1,3 +1,6 @@
+<!-- Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 <div class="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
     <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Yeni Haber Oluştur</h2>
 
@@ -30,27 +33,21 @@
             @error('image') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Detaylar (Textarea) -->
-        <div wire:ignore class="mb-4">
-            <label for="details" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Detay</label>
-            <input id="x" type="hidden" value="{{ $details }}">
-            <trix-editor input="x" class="w-full rounded-md shadow-sm dark:bg-gray-700 dark:text-white dark:border-gray-700"></trix-editor>
+        <!-- Detaylar (Quill) -->
+        <div class="mb-4" wire:ignore>
+            <label class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Detaylar</label>
+            <div id="quill-editor" class="bg-white dark:bg-gray-700 dark:text-white h-40"></div>
+            <input type="hidden" id="details" wire:model="details">
         </div>
-        <script>
-            document.addEventListener('trix-change', function (e) {
-                @this.set('details', e.target.innerHTML);
-            });
-        </script>
         @error('details') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- Gönder Butonu -->
-
-      <button
+        <button
             type="submit"
             class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-800"
         >
             Kaydet
-        </button></a>
+        </button>
     </form>
 
     @if (session()->has('message'))
@@ -59,3 +56,32 @@
         </div>
     @endif
 </div>
+
+<!-- Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+    document.addEventListener('livewire:load', function () {
+        const quill = new Quill('#quill-editor', {
+            theme: 'snow',
+            placeholder: 'Detayları buraya yazın...',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    [{ 'header': [1, 2, false] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['link'],
+                    ['clean']
+                ]
+            }
+        });
+
+        quill.on('text-change', function () {
+            document.getElementById('details').value = quill.root.innerHTML;
+            @this.set('details', quill.root.innerHTML);
+        });
+
+        // Detay daha önceden varsa editor'e yükle
+        const existingContent = @this.get('details') ?? '';
+        quill.root.innerHTML = existingContent;
+    });
+</script>
