@@ -1,0 +1,30 @@
+<style>
+    /* Trix editor butonlarının arka planını beyaz yap */
+    .trix-button {
+        background-color: #f7fafc; /* Açık gri beyaz */
+        color: #2d3748; /* Koyu gri metin rengi */
+        border: 1px solid #e2e8f0; /* Açık gri sınır */
+    }
+
+    /* Hover durumunda buton rengini değiştirmek */
+    .trix-button:hover {
+        background-color: #edf2f7; /* Daha açık bir gri */
+        color: #2d3748; /* Koyu gri metin rengi */
+    }
+
+    /* Seçili (aktif) butonun rengini değiştirmek */
+    .trix-button--active {
+        background-color: #e2e8f0; /* Aktif buton için çok açık gri */
+        color: #2d3748; /* Koyu gri metin rengi */
+    }
+
+    /* Trix editor butonlarının ikonlarına renk eklemek */
+    .trix-button--icon {
+        color: #2d3748; /* Koyu gri ikon rengi */
+    }
+
+    /* Trix editor butonlarının ikonlarına hover etkisi */
+    .trix-button--icon:hover {
+        color: #1a202c; /* Hover durumunda daha koyu gri ikon */
+    }
+</style>

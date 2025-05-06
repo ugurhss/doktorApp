@@ -1,0 +1,18 @@
+# PHP dosyalarını PHP olarak tanımla
+*.php linguist-language=PHP
+*.phtml linguist-language=PHP
+
+# Blade dosyalarını Blade olarak tanımla (HTML veya PHP değil)
+*.blade.php linguist-language=Blade
+
+# JS dosyalarını JavaScript olarak tanımla
+*.js linguist-language=JavaScript
+
+# HTML dosyalarını HTML olarak tanımla
+*.html linguist-language=HTML
+
+# CSS dosyalarını CSS olarak tanımla
+*.css linguist-language=CSS
+
+# Hack dilini görmezden gel (yanlış algılanıyorsa)
+*.hack linguist-detectable=false
