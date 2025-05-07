@@ -119,7 +119,7 @@ Route::view('profile', 'profile')
 // haberler route
 
 
-Route::get('/menu/{menu:slug}', [UserController::class, 'byMenu'])->name('news.byMenu');
+Route::get('/menu/{menu:slug}', [UserController::class, 'byMenu'])->name('user.menu');
 Route::get('news', [UserController::class, 'newsList'])->name('newsList');
 
 require __DIR__.'/auth.php';

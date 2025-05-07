@@ -62,25 +62,25 @@
           </div>
           <div>
             <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 'anasayfa-1']) }}">
+               href="{{ route('news.byMenu', ['menu' => 'anasayfa']) }}">
                 Anasayfa
             </a>
         </div>
         <div>
             <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 'hakkinda-2']) }}">
+               href="{{ route('news.byMenu', ['menu' => 'hakkinda']) }}">
                 Hakkında
             </a>
         </div>
         <div>
             <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 'durumlar-3']) }}">
+               href="{{ route('news.byMenu', ['menu' => 'durumlar']) }}">
                 Durumlar
             </a>
         </div>
         <div>
             <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 'haberler-4']) }}">
+               href="{{ route('news.byMenu', ['menu' => 'haberler']) }}">
                 Haberler
             </a>
         </div>
