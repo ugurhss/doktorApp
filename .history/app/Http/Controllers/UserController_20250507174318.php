@@ -70,7 +70,7 @@ class UserController extends Controller
     {
         // Eğer menu ID'si varsa, menüye ait haberleri listele
         // Eğer menu ID'si yoksa (null ise), tüm haberleri listele
-        return view('user.news-id-list', [
+        return view('news-id-list.blade.php', [
             'selectedMenuId' => $menu ? $menu->id : null
         ]);
     }
