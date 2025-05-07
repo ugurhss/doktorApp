@@ -16,13 +16,18 @@
 
             <!-- Image -->
             <div class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-xl">
-                @if($news->image)
-                    @php
-                        $image = json_decode($news->image);
-                    @endphp
-                    <img class="w-full h-full object-cover rounded-t-xl" src="{{ is_array($image) && count($image) > 0 ? $image[0] : 'https://cdnuploads.aa.com.tr/uploads/Contents/2025/04/02/thumbs_b_c_37d45cdf92b25d4d153e882d6cbc9602.jpg?v=230229' }}" alt="{{ $news->title }}">
+                @php
+                    $image = is_array(json_decode($news->image)) ? json_decode($news->image) : [];
+                @endphp
+
+                @if(count($image) > 0)
+                    <img class="w-full h-full object-cover rounded-t-xl"
+                         src="{{ $image[0] }}"
+                         alt="{{ $news->title }}">
                 @else
-                    <img class="w-full h-full object-cover rounded-t-xl" src="https://i.tgrthaber.com/images/haberler/25-02/04/galatasarayda-gece-yarisi-transfer-operasyonu-imza-icin-istanbula-geldi-17386415288989.jpg" alt="Blog Image">
+                    <img class="w-full h-full object-cover rounded-t-xl"
+                         src="https://via.placeholder.com/640x360.png?text=Haber+Görseli"
+                         alt="{{ $news->title }}">
                 @endif
             </div>
 

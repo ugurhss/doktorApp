@@ -116,10 +116,6 @@ Route::view('profile', 'profile')
 // Route::get('/news', UserNewsList::class)->name('news.index');
 
 // Route::get('/news/{slug}', UserNewsDetail::class)->name('news.show');
-// haberler route
-
-
-Route::get('/news/menu/{menu?}', [UserController::class, 'byMenu'])->name('news.byMenu');
-Route::get('news', [UserController::class, 'newsList'])->name('newsList');
+Route::get('/news/menu/{menu}', [UserController::class, 'byMenu'])->name('news.byMenu');
 
 require __DIR__.'/auth.php';

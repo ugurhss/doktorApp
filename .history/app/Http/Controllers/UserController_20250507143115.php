@@ -66,13 +66,12 @@ class UserController extends Controller
         // Haber verisini ve kategoriyi detay sayfasına gönderiyoruz
         return view('news-show', compact('news'));
     }
-    public function byMenu(?Menu $menu = null)
+
+    public function byMenu(Menu $menu)
     {
-        // Eğer menu ID'si varsa, menüye ait haberleri listele
-        // Eğer menu ID'si yoksa (null ise), tüm haberleri listele
+        // Menü ID'si Livewire bileşenine gönderiliyor
         return view('user.news-list', [
-            'selectedMenuId' => $menu ? $menu->id : null
+            'selectedMenuId' => $menu->id
         ]);
     }
-
 }

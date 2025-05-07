@@ -66,7 +66,8 @@ class UserController extends Controller
         // Haber verisini ve kategoriyi detay sayfasına gönderiyoruz
         return view('news-show', compact('news'));
     }
-    public function byMenu(?Menu $menu = null)
+
+    public function byMenu(Menu $menu = null)
     {
         // Eğer menu ID'si varsa, menüye ait haberleri listele
         // Eğer menu ID'si yoksa (null ise), tüm haberleri listele
@@ -74,5 +75,4 @@ class UserController extends Controller
             'selectedMenuId' => $menu ? $menu->id : null
         ]);
     }
-
 }

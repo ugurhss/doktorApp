@@ -16,11 +16,9 @@ class UserNewsList extends Component
         $this->menuId = $menuId;
 
         if ($menuId) {
-            // Menü ID'si verildiyse, menüye ait haberleri alıyoruz
             $menu = Menu::with('news')->find($menuId);
             $this->newsItems = $menu ? $menu->news : collect();
         } else {
-            // Menü ID'si verilmediyse, tüm haberleri alıyoruz
             $this->newsItems = News::all();
         }
     }
