@@ -78,12 +78,9 @@
                 Durumlar
             </a>
         </div>
-        <div>
-            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 4]) }}">
-                Haberler
-            </a>
-        </div>
+          <div>
+            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600" href="/news">Haberler</a>
+          </div>
         </div>
       </div>
       <!-- End Collapse -->

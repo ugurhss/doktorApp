@@ -61,29 +61,17 @@
             <a class="relative inline-block text-black focus:outline-hidden before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-lime-400" href="#" aria-current="page">Work</a>
           </div>
           <div>
-            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 1]) }}">
-                Anasayfa
-            </a>
-        </div>
+            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600" href="#">Anasayfa</a>
+          </div>
           <div>
-            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 2]) }}">
-                Hakkında
-            </a>
-        </div>
-        <div>
-            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 3]) }}">
-                Durumlar
-            </a>
-        </div>
-        <div>
-            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600"
-               href="{{ route('news.byMenu', ['menu' => 4]) }}">
-                Haberler
-            </a>
-        </div>
+            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600" href="#">Hakkında</a>
+          </div>
+          <div>
+            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600" href="#">Durumlar</a>
+          </div>
+          <div>
+            <a class="inline-block text-black hover:text-gray-600 focus:outline-hidden focus:text-gray-600" href="/news">Haberler</a>
+          </div>
         </div>
       </div>
       <!-- End Collapse -->
