@@ -131,7 +131,6 @@ class VideoManage extends Component
     public function render()
     {
         $allMenus = Menu::all(); // Tüm menüleri alıyoruz
-        return view('livewire.video-manage', ['allMenus' => $allMenus]);
-
+        return view('livewire.video-manage','allMenus');
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Menu;
 use App\Models\News;
 use Livewire\Component;
 
@@ -81,7 +80,7 @@ class VideoManage extends Component
         $this->validate([
             'title' => 'required|string|max:255',
             'details' => 'required|string',
-            'video_link' => 'required|url',
+            'video_link' => 'required|url', // Video linki geçerli bir URL olmalı
         ]);
 
         // Videoyu güncelliyoruz
@@ -89,11 +88,8 @@ class VideoManage extends Component
         $video->update([
             'title' => $this->title,
             'details' => $this->details,
-            'video_link' => $this->video_link,
+            'video_link' => $this->video_link, // Video linkini güncelliyoruz
         ]);
-
-        // Menüleri güncelliyoruz
-        $video->menus()->sync($this->menu_ids); // Menüleri pivot tabloya günceller
 
         // Başarılı işlem mesajı
         session()->flash('message', 'Video başarıyla güncellendi.');
@@ -130,8 +126,6 @@ class VideoManage extends Component
 
     public function render()
     {
-        $allMenus = Menu::all(); // Tüm menüleri alıyoruz
-        return view('livewire.video-manage', ['allMenus' => $allMenus]);
-
+        return view('livewire.video-manage');
     }
 }

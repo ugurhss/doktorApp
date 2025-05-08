@@ -5,41 +5,54 @@
         <p class="mt-3 text-lg text-gray-600 dark:text-neutral-400">Güncel video içerikli haberleri izleyin.</p>
     </div>
 
-    <!-- Video Table -->
-    <div class="overflow-x-auto mb-10">
-        <table class="min-w-full table-auto border-collapse text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-100 dark:bg-neutral-800">
-                <tr>
-                    <th class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Başlık</th>
-                    <th class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Video Linki</th>
-                    <th class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Detaylar</th>
-                    <th class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">İşlemler</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                @foreach ($videos as $video)
-                <tr class="hover:bg-gray-50 dark:hover:bg-neutral-800">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white">
-                        {{ $video->title }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-neutral-400">
-                        <a href="{{ $video->video_link }}" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-500">
-                            İzle
-                        </a>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-neutral-400">
-                        {{ \Illuminate\Support\Str::limit(strip_tags($video->details), 100) }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-neutral-400">
-                        <div class="space-x-2">
-                            <button wire:click="edit({{ $video->id }})" class="bg-blue-600 text-white p-2 rounded-lg text-sm hover:bg-blue-700 transition duration-200 ease-in-out">Düzenle</button>
-                            <button wire:click="delete({{ $video->id }})" class="bg-red-600 text-white p-2 rounded-lg text-sm hover:bg-red-700 transition duration-200 ease-in-out">Sil</button>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <!-- Video Kartları -->
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @foreach ($videos as $video)
+        <div class="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <div class="relative w-full h-64 bg-gray-200 dark:bg-neutral-700">
+                @php
+                    $link = $video->video_link;
+                    $youtubeId = null;
+
+                    // Youtube linki kontrolü
+                    if (Str::contains($link, 'youtube.com/watch?v=')) {
+                        $youtubeId = Str::after($link, 'v=');
+                        $youtubeId = Str::before($youtubeId, '&');
+                    } elseif (Str::contains($link, 'youtu.be/')) {
+                        $youtubeId = Str::afterLast($link, '/');
+                        $youtubeId = Str::before($youtubeId, '?');
+                    }
+                @endphp
+
+                @if ($youtubeId)
+                    <!-- YouTube Embed Player -->
+                    <div class="youtube-player" data-video-id="{{ $youtubeId }}"></div>
+                @else
+                    <!-- Yerel MP4 Video -->
+                    <video controls class="absolute top-0 left-0 w-full h-full object-cover">
+                        <source src="{{ $video->video_link }}" type="video/mp4">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                @endif
+            </div>
+
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">{{ $video->title }}</h3>
+                <p class="text-sm text-gray-600 dark:text-neutral-400 mb-4">{{ \Illuminate\Support\Str::limit(strip_tags($video->details), 120) }}</p>
+
+                <div class="flex items-center justify-between mt-4">
+                    <a href="/news/{{ $video->slug }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-500 font-medium">
+                        Devamını Oku →
+                    </a>
+
+                    <div class="space-x-4">
+                        <button wire:click="edit({{ $video->id }})" class="bg-blue-600 text-white p-2 rounded-lg text-sm hover:bg-blue-700 transition duration-200 ease-in-out">Düzenle</button>
+                        <button wire:click="delete({{ $video->id }})" class="bg-red-600 text-white p-2 rounded-lg text-sm hover:bg-red-700 transition duration-200 ease-in-out">Sil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 
     <!-- Form: Yeni Video Ekleme / Düzenleme -->
@@ -87,7 +100,7 @@
     <!-- Başarı mesajı -->
     @if (session()->has('message'))
     <div class="mt-6 text-green-600 font-semibold">
-        {{ session('message') }}
+        {{ session('message') }} <!-- Başarı mesajını gösteriyoruz -->
     </div>
     @endif
 </div>
