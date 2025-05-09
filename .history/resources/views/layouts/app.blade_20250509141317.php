@@ -42,10 +42,7 @@
         <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trix@1.3.1/dist/trix.css">
        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-      <!-- Hero Animasyon CSS -->
-
-
-    </head>
+      </head>
 
         <!-- Scripts -->
         {{-- sbazı şeyker düzenlendi --}}
@@ -70,10 +67,8 @@
             <main>
                 {{ $slot }}
             </main>
-
         </div>
         <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-youtube/dist/Youtube.min.js"></script>
     </body>
-
 </html>

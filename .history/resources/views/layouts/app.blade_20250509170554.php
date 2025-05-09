@@ -42,10 +42,7 @@
         <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trix@1.3.1/dist/trix.css">
        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-      <!-- Hero Animasyon CSS -->
-
-
-    </head>
+      </head>
 
         <!-- Scripts -->
         {{-- sbazı şeyker düzenlendi --}}

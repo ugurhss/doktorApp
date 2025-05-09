@@ -50,7 +50,7 @@ new class extends Component
                                 </x-nav-link>
 
                                 <x-nav-link :href="route('video-crud')" :active="request()->routeIs('video-crud')" wire:navigate>
-                                    {{ __('Video Yönetimi') }}
+                                    {{ __('Haber Yönetimi') }}
                                     </x-nav-link>
 
                     @endif

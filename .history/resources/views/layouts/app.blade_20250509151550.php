@@ -42,10 +42,7 @@
         <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trix@1.3.1/dist/trix.css">
        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-      <!-- Hero Animasyon CSS -->
-
-
-    </head>
+      </head>
 
         <!-- Scripts -->
         {{-- sbazı şeyker düzenlendi --}}
@@ -70,7 +67,46 @@
             <main>
                 {{ $slot }}
             </main>
+            <style>
+                 @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
+      @keyframes slide-in {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-fade-in-down {
+        animation: fade-in-down 1s ease-out forwards;
+      }
+
+      .animate-slide-in {
+        animation: slide-in 1s ease-out forwards;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+
+            </style>
         </div>
         <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-youtube/dist/Youtube.min.js"></script>

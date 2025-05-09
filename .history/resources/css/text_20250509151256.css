@@ -1,0 +1,67 @@
+
+    /* Trix editor butonlarının arka planını beyaz yap */
+    .trix-button {
+        background-color: #f7fafc; /* Açık gri beyaz */
+        color: #e6eaf2; /* Koyu gri metin rengi */
+        border: 1px solid #e2e8f0; /* Açık gri sınır */
+    }
+
+    /* Hover durumunda buton rengini değiştirmek */
+    .trix-button:hover {
+        background-color: #fefefe; /* Daha açık bir gri */
+        color: #0fde43; /* Koyu gri metin rengi */
+    }
+
+    /* Seçili (aktif) butonun rengini değiştirmek */
+    .trix-button--active {
+        background-color: #e2e8f0; /* Aktif buton için çok açık gri */
+        color: #f2f3f4; /* Koyu gri metin rengi */
+    }
+
+    /* Trix editor butonlarının ikonlarına renk eklemek */
+    .trix-button--icon {
+        color: #ebecee; /* Koyu gri ikon rengi */
+    }
+
+    /* Trix editor butonlarının ikonlarına hover etkisi */
+    .trix-button--icon:hover {
+        color: #e2e8f5; /* Hover durumunda daha koyu gri ikon */
+    }
+
+    @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-in {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-fade-in-down {
+        animation: fade-in-down 1s ease-out forwards;
+      }
+
+      .animate-slide-in {
+        animation: slide-in 1s ease-out forwards;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-500 {
+        animation-delay: 0.5s;
+      }

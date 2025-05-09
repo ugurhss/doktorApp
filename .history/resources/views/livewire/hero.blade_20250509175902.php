@@ -42,7 +42,7 @@
             </div>
             <div>
               <p class="text-sm text-white/80">Gönüllü</p>
-              <p class="text-2xl font-bold text-white stats-counter" id="stats-counter" data-target="1250">0+</p>
+              <p class="text-2xl font-bold text-white stats-counter" id="stats-counter" data-target="350">0+</p>
             </div>
           </div>
 
@@ -54,7 +54,7 @@
             </div>
             <div>
               <p class="text-sm text-white/80">Başarı Hikayesi</p>
-              <p class="text-2xl font-bold text-white stats-counter" id="stats-counter" data-target="950">0+</p>
+              <p class="text-2xl font-bold text-white stats-counter" id="stats-counter" data-target="350">0+</p>
             </div>
           </div>
         </div>

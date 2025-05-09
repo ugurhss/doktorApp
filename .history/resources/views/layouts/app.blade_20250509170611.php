@@ -43,7 +43,49 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trix@1.3.1/dist/trix.css">
        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
       <!-- Hero Animasyon CSS -->
+<style>
+    .hero-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
 
+    .hero-animate.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-image-hover {
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image-hover:hover {
+      transform: rotate(-1deg) scale(1.02);
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .wave-animation {
+      animation: wave 8s linear infinite;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .stats-counter {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
 
     </head>
 
